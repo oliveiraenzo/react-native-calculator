@@ -54,6 +54,16 @@ export default function App() {
     setResultado(divisao);
   }
 
+  function exponencial() {
+    if (isNaN(valor1) || isNaN(valor2)) {
+      alert('Por favor, preencha ambos os campos com números válidos.');
+      return;
+    }
+    // Função para calcular a exponenciação
+    let exponencial = Math.pow(valor1, valor2);
+    setResultado(exponencial);
+  }  
+
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Calculadora Simples</Text>
@@ -81,6 +91,9 @@ export default function App() {
       </TouchableOpacity>
       <TouchableOpacity style={styles.botaoDivisao} onPress={dividir}>
         <Text style={styles.botaoDivisaoTexto}>Divisão</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.botaoExponencial} onPress={exponencial}>
+        <Text style={styles.botaoExponencialTexto}>Exponencial</Text>
       </TouchableOpacity>
 
       <Text style={styles.resultado}>Resultado: {resultado}</Text>
@@ -151,6 +164,17 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   botaoDivisaoTexto: {
+    color: 'white',
+    fontSize: 18,
+    textAlign: 'center',
+  },
+  botaoExponencial: {
+    backgroundColor: 'purple',
+    padding: 15,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  botaoExponencialTexto: {
     color: 'white',
     fontSize: 18,
     textAlign: 'center',
